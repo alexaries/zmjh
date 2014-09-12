@@ -1,0 +1,1084 @@
+package com.game.view.toolbar
+{
+	import com.engine.core.Log;
+	import com.game.Data;
+	import com.game.data.db.protocal.Buff;
+	import com.game.data.db.protocal.Prop;
+	import com.game.data.fight.FightConfig;
+	import com.game.data.player.PlayerEvent;
+	import com.game.data.player.structure.RoleModel;
+	import com.game.data.save.SubmitData;
+	import com.game.manager.DebugManager;
+	import com.game.manager.LayerManager;
+	import com.game.manager.URIManager;
+	import com.game.template.GameConfig;
+	import com.game.template.InterfaceTypes;
+	import com.game.template.LayerTypes;
+	import com.game.template.TipContentConfig;
+	import com.game.template.V;
+	import com.game.view.Base;
+	import com.game.view.BaseView;
+	import com.game.view.Component;
+	import com.game.view.IView;
+	import com.game.view.LevelEvent.AdventuresConfig;
+	import com.game.view.ViewEventBind;
+	import com.game.view.buff.BuffOperate;
+	import com.game.view.effect.CloseShowEffect;
+	import com.game.view.effect.DeformEffect;
+	import com.game.view.effect.DeformTip;
+	import com.game.view.effect.EffectShow;
+	import com.game.view.effect.FlyEffect;
+	import com.game.view.effect.GlowAnimationEffect;
+	import com.game.view.effect.StretchEffect;
+	import com.game.view.equip.PropTip;
+	import com.game.view.map.HideLVMap;
+	import com.game.view.save.SaveConfig;
+	import com.game.view.ui.UIConfig;
+	
+	import flash.ui.Keyboard;
+	import flash.utils.describeType;
+	import flash.utils.getTimer;
+	
+	import starling.animation.Tween;
+	import starling.core.Starling;
+	import starling.display.Button;
+	import starling.display.DisplayObject;
+	import starling.display.Image;
+	import starling.display.MovieClip;
+	import starling.events.Event;
+	import starling.events.KeyboardEvent;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
+	import starling.filters.GrayscaleFilter;
+	import starling.text.TextField;
+	import starling.textures.Texture;
+	import starling.textures.TextureAtlas;
+
+	public class ToolBarView extends BaseView implements IView 
+	{
+		private var _status:String = "";
+		public function get status() : String
+		{
+			return _status;
+		}
+		private var _propTip:PropTip;
+		public var serviceHold:*;
+		
+		public function ToolBarView()
+		{
+			_layer = LayerTypes.TOOLBAR;
+			_moduleName = V.TOOLBAR;
+			_loaderModuleName = V.PUBLIC;
+			
+			super();
+		}
+		
+		public function interfaces(type:String = "", ...args) : *
+		{
+			if (type == "") type = InterfaceTypes.Show;
+			
+			switch (type)
+			{
+				case InterfaceTypes.Show:
+					_view.roleImage.interfaces();
+					_view.equip.interfaces();
+					_status = args[0];
+					this.show();
+					break;
+				case InterfaceTypes.REFRESH:
+					refresh();
+					break;
+				case InterfaceTypes.REFRESH_PART:
+					renderPart();
+					break;
+				case InterfaceTypes.LOCK:
+					panel.touchable = false;
+					break;
+				case InterfaceTypes.UNLOCK:
+					panel.touchable = true;
+					break;
+				case InterfaceTypes.SET_EFFECT:
+					addWeatherEffect();
+					break;
+				case InterfaceTypes.GET_DATA:
+					return _weatherEffect;
+					break;
+				case InterfaceTypes.CHECK_TASK:
+					checkTask();
+					break
+				case InterfaceTypes.CHECK_EXP:
+					BuffOperate.checkBuff(_propBuff, _propTip);
+					break;
+			}
+		}
+		
+		
+		override protected function init() : void
+		{
+			if (!isInit)
+			{
+				super.init();
+				isInit = true;
+				
+				initXML();
+				initComponent();
+				initUI();
+				getUI();
+				initEvent();
+				initBeginEvent();
+				
+				_view.double_level.addTimeCalculate();
+				LayerManager.instance.gpu_stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDowns);
+			}
+			
+			// toolbar解锁
+			panel.touchable = true;
+			refresh();
+		}
+		
+		/**
+		 * 键盘侦听，F1保存游戏
+		 * 
+		 * @param e
+		 * 
+		 */		
+		private function onKeyDowns(e:KeyboardEvent) : void
+		{
+			
+			if(!_view.toolbar.panel.touchable || _view.layer.checkTipMask() || _view.layer.checkTopMask() || _view.first_guide.isGuide || _view.get_role_guide.isGuide)
+				return;
+			
+			switch(e.keyCode)  
+			{
+				case Keyboard.F1:
+					Log.Trace("手动点击保存");
+					if(_view.controller.save.onCommonSave()){
+						_view.controller.save.onSaveFighting();
+						_view.toolbar.interfaces(InterfaceTypes.UNLOCK);
+					}
+					break;
+			}
+		}
+		
+		
+		/**
+		 * 解析基础配置文件 
+		 * 
+		 */
+		private var _positionXML:XML;
+		private function initXML() : void
+		{
+			_positionXML = getXMLData(V.PUBLIC, GameConfig.PUBLIC_RES, "ToolbarPosition");
+		}
+		
+		private function initComponent() : void
+		{
+			var name:String;
+			var cp:Component;
+			var layerName:String;
+			for each(var items:XML in _positionXML.component.Items)
+			{
+				name = items.@name;
+				if (!this.checkInComponent(name))
+				{
+					switch (name)
+					{
+						case "RoleInformation":
+							cp = new RoleInformationComponent(items, _view.publicRes.titleTxAtlas);
+							_components.push(cp);
+							break;
+						case "SmallRoleInformation":
+							cp = new SmallRoleInformationComponent(items, _view.publicRes.titleTxAtlas);
+							_components.push(cp);
+							break;
+						case "NewFunctions":
+							cp = new NewFunctionComponent(items, _view.publicRes.titleTxAtlas);
+							_components.push(cp);
+							break;
+						case "OnlineComponent":
+							cp = new OnlineComponent(items, _view.publicRes.titleTxAtlas);
+							_components.push(cp);
+							break;
+						case "DoubleComponent":
+							cp = new DoubleComponent(items, _view.publicRes.titleTxAtlas);
+							_components.push(cp);
+							break;
+					}
+				}	
+			}
+		}
+		
+		private function initUI() : void
+		{
+			var name:String;
+			var obj:*;
+			for each(var items:XML in _positionXML.toolbar)
+			{
+				for each(var element:XML in items.item)
+				{
+					name = element.@name;
+					if (!checkIndexof(name))
+					{
+						obj = createDisplayObject(element);
+						_uiLibrary.push(obj);
+					}
+				}
+			}
+		}
+		
+		private var _randomDice:Button;
+		private var _specificDice:Button;
+		private var _money:TextField;
+		private var _fightSoul:TextField;
+		private var _legs:TextField;
+		private var _ginseng:TextField;
+		private var _freedom:TextField;
+		private var _diceBtnTF:TextField;
+		private var _teamFirst:SmallRoleInformationComponent;
+		private var _teamSecond:SmallRoleInformationComponent;
+		
+		// 保存组件
+		private var _saveComponent:SaveGameComponent;
+		
+		private var _taskBtn:Button;
+		private var _taskEffect:GlowAnimationEffect;
+		
+		private var _weatherEffect:MovieClip;
+		private var _weatherChangeEffect:MovieClip;
+		private var _activityEffect:GlowAnimationEffect;
+		
+		private var _newFunction:NewFunctionComponent;
+
+		private var _deformTip:DeformTip;
+		public function get deformTip() : DeformTip
+		{
+			return _deformTip;
+		}
+		
+		private var _worldBossBtn:Button;
+		private var _playerFightBtn:Button;
+		private var _vipButton:Button;
+		private var _vipLevel:MovieClip;
+		
+		private var _onlineComponent:OnlineComponent;
+		public var _doubleComponent:DoubleComponent;
+		private function getUI() : void
+		{
+			(this.searchOf("BlackUp") as Image).touchable = false;
+			
+			_randomDice = this.searchOf("DiceButton");			
+			_specificDice = this.searchOf("FreedomDice");
+			_money = this.searchOf("Tx_Money");
+			_fightSoul = this.searchOf("Tx_WarValue");
+			_legs = this.searchOf("Tx_Legs");
+			_ginseng = this.searchOf("Tx_Ginseng");
+			_freedom = this.searchOf("Tx_FreedomDice"); 
+			_diceBtnTF = this.searchOf("Tx_DiceButton");
+			_teamFirst = (this.searchOf("MyTeamFirst") as SmallRoleInformationComponent);
+			_teamSecond = (this.searchOf("MyTeamSecond") as SmallRoleInformationComponent);
+			
+			_saveComponent = new SaveGameComponent((searchOf("Toolbar_World_SaveRole") as Button), (searchOf("Save_CD") as TextField));
+			_saveComponent.init();
+			
+			_propTip=_view.ui.interfaces(UIConfig.PROP_TIP);
+			var propData:Vector.<Object> = Data.instance.db.interfaces(InterfaceTypes.GET_PROP_DATA);
+			
+			_propTip.add({o:(this.searchOf("FreedomDice") as Button), m:propData[0]});
+			_propTip.add({o:(this.searchOf("Legs") as Button), m:propData[1]});
+			_propTip.add({o:(this.searchOf("Ginseng") as Image), m:propData[2]});
+			
+			_propTip.add({o:(this.searchOf("Toolbar_Money") as Image), m:{name:TipContentConfig.MONEY_TITLE,message:TipContentConfig.MONEY}});
+			_propTip.add({o:(this.searchOf("Toolbar_WarValue") as Image), m:{name:TipContentConfig.FIGHT_SOUL_TITLE,message:TipContentConfig.FIGHT_SOUL}});
+			
+			_taskBtn = this.searchOf("Toolbar_World_Task");
+			
+			_weatherEffect = this.searchOf("Weather_Effect");
+			_weatherEffect.stop();
+			Starling.juggler.add(_weatherEffect);
+			_weatherChangeEffect = createNewMovieClip(730, -60, "Spread_00");
+			
+			_taskEffect = new GlowAnimationEffect(_taskBtn);
+			
+			_activityEffect = new GlowAnimationEffect(this.searchOf("Toolbar_World_Activity") as Button);
+			
+			_newFunction = this.searchOf("NewFun") as NewFunctionComponent;
+			
+			_deformTip = _view.ui.interfaces(UIConfig.DEFORM_TIP);
+			
+			_worldBossBtn = this.searchOf("Toolbar_World_Boss");
+			
+			_playerFightBtn = this.searchOf("Toolbar_World_PlayerFight");
+			_vipButton = this.searchOf("VipBg");
+			_vipLevel = this.searchOf("VipLevel");
+			_vipLevel.stop();
+			Starling.juggler.add(_vipLevel);
+			
+			_onlineComponent = this.searchOf("Online");
+			_doubleComponent = this.searchOf("Double");
+			
+			createPropBuff();
+		}
+		
+		/**
+		 * 完全刷新
+		 * 
+		 */		
+		private function refresh() : void
+		{
+			renderPart();
+			checkStatus();
+			
+			renderStretch();
+		}
+		
+		private var _stretchEffect:StretchEffect;
+		private function renderStretch():void
+		{
+			if(!_stretchEffect)
+			{
+				var list:Array = [searchOf("Toolbar_World_SaveRole"),
+									searchOf("Save_CD"),
+									searchOf("Toolbar_World_Upgrade"),
+									searchOf("Toolbar_World_Strengthen"),
+									searchOf("Toolbar_World_Shop"),
+									searchOf("Toolbar_World_RoleInfo"),
+									searchOf("Toolbar_World_RoleSelect"),
+									searchOf("Toolbar_World_FeedBack"),
+									searchOf("VipBg"),
+									searchOf("VipLevel"),
+									searchOf("MyRole")
+									];
+				_stretchEffect = new StretchEffect(panel, searchOf("StretchBtn"), list);
+			}
+			_stretchEffect.initData(getVisibleBtn());
+			_stretchEffect.hideMask();
+		}
+		
+		public function stretchButton() : void
+		{
+			_stretchEffect.stretchList();
+		}
+		public function unStretchButton() : void
+		{
+			_stretchEffect.unStretchList();
+		}
+		public function checkStretch() : Boolean
+		{
+			return _stretchEffect.isStretch;
+		}
+		public function hideMask() : void
+		{
+			_stretchEffect.hideMask();
+		}
+		
+		private function getVisibleBtn() : Array
+		{
+			var result:Array = new Array();
+			var list:Array = new Array();
+			if(_status == "world")
+				list = [_doubleComponent,
+						_onlineComponent,
+						searchOf("Toolbar_World_Activity"),
+						searchOf("Toolbar_World_Boss"),
+						searchOf("Toolbar_World_PlayerFight"),
+						searchOf("Toolbar_World_Daily_Work")];
+			else
+				list = [];
+			var len:int = list.length;
+			var obj:DisplayObject;
+			for(var i:int = 0; i < len; i++)
+			{
+				if(list[i] is Component)
+					obj = list[i].panel;
+				else
+					obj = list[i];
+				if(obj.visible == true)
+					result.push(list[i]);
+			}
+			
+			return result;
+		}
+		
+		private function renderPart() : void
+		{
+			renderRoleFace();
+			renderTF();
+		}
+		
+		/**
+		 * 队伍框引导
+		 * 
+		 */		
+		public function onStartRoleFly() : void
+		{
+			_newFunction.startFly((searchOf("Toolbar_World_RoleSelect") as Button), _positionXML.toolbar[1], _positionXML.toolbar[2], "切换队伍上阵角色，可以角色传功", "role");
+		}
+		
+		/**
+		 * 角色框引导
+		 * 
+		 */		
+		public function onStartFly() : void
+		{
+			_newFunction.startFly((searchOf("Toolbar_World_RoleInfo") as Button), _positionXML.toolbar[0], _positionXML.toolbar[1], "查看角色装备技能，切换队伍阵型", "roleDetail");
+		}
+		
+		private var _doubleExp:Image;
+		private var _luckyFeel:Image;
+		private var _fashionClothes:Image;
+		private var _propBuff:Vector.<Image>;
+		private function createPropBuff() : void
+		{
+			if(!_propBuff)
+				_propBuff = new Vector.<Image>();
+			if(!_doubleExp)
+			{
+				_doubleExp = BuffOperate.createBuffImage(_doubleExp, 1, 33, panel);
+				_propBuff.push(_doubleExp);
+			}
+			if(!_luckyFeel)
+			{
+				_luckyFeel = BuffOperate.createBuffImage(_luckyFeel, 4, 39, panel);
+				_propBuff.push(_luckyFeel);
+			}
+			if(!_fashionClothes)
+			{
+				_fashionClothes = BuffOperate.createBuffImage(_fashionClothes, 5, 43, panel);
+				_propBuff.push(_fashionClothes);
+			}
+		}
+		
+		/**
+		 * 添加天气特效
+		 * 
+		 */		
+		private function addWeatherEffect() : void
+		{
+			var weatherShow:EffectShow = new EffectShow(panel);
+			weatherShow.addShowObj(_weatherChangeEffect);
+			weatherShow.start();
+		}
+		
+		private function renderTF() : void
+		{
+			_money.text = player.money.toString();
+			_fightSoul.text = player.fight_soul.toString();
+			_diceBtnTF.text = player.dice.toString();
+			// 满汉全席
+			_legs.text = player.pack.getPropNumById(2).toString();
+			// 雪山人参
+			_ginseng.text = player.pack.getPropNumById(3).toString();
+			// 如意色子
+			_freedom.text = player.pack.getPropNumById(1).toString();
+		}
+		
+		/**
+		 * 渲染角色頭像 
+		 * 
+		 */	
+		private function renderRoleFace() : void
+		{
+			if(!player.hasEventListener(PlayerEvent.PLAYER_CHANGE)) 
+			{
+				player.addEventListener(
+					PlayerEvent.PLAYER_CHANGE, 
+					function (e:Event) : void
+					{
+						renderPart();
+					}
+				);
+			}
+			
+			_teamFirst.removeFromStage();
+			_teamSecond.removeFromStage();
+			
+			// 韦小宝固定不变
+			(searchOf("MyRole") as RoleInformationComponent).setRoleName(V.MAIN_ROLE_NAME);
+			
+			var otherRoles:Vector.<String> = player.formation.getOtherRoleName();
+			
+			for (var i:int = 0; i < otherRoles.length; i++)
+			{
+				switch (i)
+				{
+					case 0:
+						_teamFirst.setRoleName(otherRoles[i]);
+						if(_status == "map") panel.addChild(_teamFirst.panel);
+						break;
+					case 1:
+						_teamSecond.setRoleName(otherRoles[i]);
+						if(_status == "map") panel.addChild(_teamSecond.panel);
+						break;
+				}
+			}
+		}
+
+		
+		override protected function onClickBeginHandle(e:ViewEventBind) : void
+		{
+			if(_status == "map")
+				this.panel.touchable = false;
+		}
+		
+		/**
+		 * 事件监听 
+		 * @param e
+		 * 
+		 */		
+		override protected function onClickeHandle(e:ViewEventBind) : void
+		{
+			var name:String = e.target.name;
+			
+			switch (name)
+			{
+				// 队伍
+				case "Toolbar_World_RoleSelect":
+					if(_view.get_role_guide.isGuide)
+						_view.get_role_guide.setFunc();
+					_view.roleSelect.interfaces();
+					_deformTip.removeDeform("role");
+					break;
+				// 随机色子
+				case "DiceButton":
+					if(_view.first_guide.isGuide)
+						_view.dice.interfaces(InterfaceTypes.COMFIRE_DICE);
+					else
+						_view.dice.interfaces(InterfaceTypes.RANDOM_DICE);
+					break;
+				// 如意色子
+				case "FreedomDice":
+					_view.freeDice.interfaces(InterfaceTypes.SPECIFIC_DICE);
+					break;
+				// 商店
+				case "Toolbar_World_Shop":
+					_view.shop.interfaces(InterfaceTypes.Show);
+					break;
+				// 保存
+				case "Toolbar_World_SaveRole":
+					Log.Trace("手动点击保存");
+					_view.controller.save.onCommonSave();
+					_view.controller.save.onSaveFighting();
+					_view.toolbar.interfaces(InterfaceTypes.UNLOCK);
+					break;
+				// 雪山人参
+				case "Legs":
+					_view.adventures.interfaces(InterfaceTypes.SPECIFIC_ADVENTURE, AdventuresConfig.SPECIAL, AdventuresConfig.CHICKEN_EVENT);
+					break;
+				// 离开关卡
+				case "ComeBack":
+					_view.tip.interfaces(
+						InterfaceTypes.Show,
+						"是否离开关卡？",
+						onComeBack, 
+ 						function () : void{panel.touchable = true;}	
+					);
+					break;
+				// 人物
+				case "Toolbar_World_RoleInfo":
+					//1级向导
+					if(_view.first_guide.isGuide)
+					{
+						_deformTip.removeDeform("roleDetail"); 
+						_view.first_guide.setFunc();
+					}
+					_view.role.interfaces(InterfaceTypes.Show, V.MAIN_ROLE_NAME);
+					break;
+				// 回退到登陆开始封面
+				case "ComeBackLogin":
+					//onComeBackLogin();
+					break;
+				// 反馈
+				case "Toolbar_World_FeedBack":
+					URIManager.openDebugURL();
+					break;
+				// 买筛子
+				case "AddDiceButton":
+					buyDice();
+					break;
+				// 强化
+				case "Toolbar_World_Strengthen":
+					_view.equip_strengthen.interfaces();
+					break;
+				// 任务
+				case "Toolbar_World_Task":
+					_view.daily.interfaces(InterfaceTypes.HIDE);
+					break;
+				// 礼包
+				case "Toolbar_World_Activity":
+					_view.activity.interfaces();
+					break;
+				// 真假小宝
+				case "Toolbar_World_Boss":
+					_view.world_boss.interfaces();
+					break;
+				// 竞技场
+				case "Toolbar_World_PlayerFight":
+					_view.player_fight.interfaces();
+					break;
+				// 图鉴
+				case "Toolbar_World_Upgrade":
+					_view.upgrade.interfaces();
+					break;
+				//中秋兔爷送礼
+				case "Toolbar_World_MidAutumn":
+					_view.mid_autumn.interfaces();
+					break;
+				//vip系统
+				case "VipBg":
+					_view.vip.interfaces();
+					break;
+				//每日必做
+				case "Toolbar_World_Daily_Work":
+					_view.daily_work.interfaces();
+					break;
+				default:
+					Log.Trace(name);
+			}
+		}
+		
+		/**
+		 * 保存CD 
+		 * 
+		 */		
+		public function onSaveCD() : void
+		{
+			_saveComponent.beginSave();
+		}
+		/**
+		 * 保存重设CD
+		 * 
+		 */		
+		public function onSaveInit() : void
+		{
+			if(_saveComponent != null) _saveComponent.resetPara();
+		}
+		
+		/**
+		 * 购买筛子 
+		 * 
+		 */		
+		private function buyDice() : void
+		{
+			_view.buy_dice.interfaces();
+		}
+		
+		public function onComeBackLogin() : void
+		{
+			onSaveInit();
+			_view.world.hide();
+			_view.world.close();
+			_view.map.close();
+			player.resetPlayer();
+			player = null;
+			
+			var xml:XML = describeType(_view);
+			for(var i:int =0;i<xml.accessor.length();i++)
+			{
+				if(_view[xml.accessor[i].@name] is BaseView)
+				{
+					_view[xml.accessor[i].@name].resetView();
+					_view[xml.accessor[i].@name].hide();
+					if(xml.accessor[i].@name == "roleSelect" || xml.accessor[i].@name == "equip_strengthen" || xml.accessor[i].@name == "shop" || xml.accessor[i].@name == "toolbar" || xml.accessor[i].@name == "role")
+					{
+						_view[xml.accessor[i].@name].destroy();
+					}
+					//trace(xml.accessor[i].@name);
+				}
+			}
+			_view.start.interfaces();
+		}
+		
+		public function onComeBack() : void
+		{
+			_view.world.interfaces();
+			_view.map.close();
+			_view.freeDice.hide();
+			_view.dice.hide();
+		}
+		
+		private function checkStatus() : void
+		{
+			var targetXML:XML;
+  			if(_status == "world")
+			{
+				if(!Data.instance.guide.guideInfo.checkGuideInfo("first", "first"))
+					targetXML = _positionXML.toolbar[0];
+				else if(!Data.instance.guide.guideInfo.checkGuideInfo("getRole", "getRole"))
+					targetXML = _positionXML.toolbar[1];
+				else
+					targetXML = _positionXML.toolbar[2];
+			}
+			else 
+			{
+				targetXML = _positionXML.toolbar[3];
+			}
+
+			resetPosition(targetXML);
+			
+			for each(var item:* in _uiLibrary)
+			{
+				if (item is DisplayObject) item.visible = false;
+				else if (item is Component) (item as Component).panel.visible = false;
+			}
+			seStatusOfXML(targetXML, true);
+			
+			checkShowStatus();
+		}
+		
+		private function checkShowStatus() : void
+		{
+			checkVip();
+			checkUnion();
+			checkOnlineTime();
+			checkActivity();
+			checkRoleMartial();
+			checkDaily();
+			checkPluginGame();
+			checkWorldBoss();
+			checkPlayerFight();
+			checkMidAutumn();
+			checkDailyWork();
+			
+			_newFunction.hide();
+			_onlineComponent.checkOnlineBtn();
+			_doubleComponent.checkDoubleLevelBtn();
+			BuffOperate.checkBuff(_propBuff, _propTip);
+		}
+		
+		/**
+		 * 天地会按钮
+		 * 
+		 */		
+		private function checkUnion() : void
+		{
+			if(player.checkLevelShow("6_1"))
+				_view.world.showIcon();
+			else
+				_view.world.hideIcon();
+		}
+		
+		/**
+		 * Vip按钮
+		 * 
+		 */		
+		public function checkVip():void
+		{
+			if(player.vipInfo.nowVIPLevel == 0)
+			{
+				_vipButton.filter = new GrayscaleFilter();
+				_vipLevel.visible = false;
+			}
+			else
+			{
+				_vipButton.filter = null;
+				_vipLevel.visible = true;
+				_vipLevel.currentFrame = player.vipInfo.nowVIPLevel - 1;
+			}
+		}
+		
+		
+		/**
+		 * 在线检测
+		 * 
+		 */		
+		public function checkOnlineTime() : void
+		{
+			if(player.onlineTimeInfo.isComplete)
+			{
+				checkStretchShow(4, "在线奖励可领取");
+				_deformTip.addNewDeform(_onlineComponent._onlineTimeBtn, "online");
+			}
+			else
+			{
+				checkStretchShow(4);
+				_deformTip.removeDeform("online");
+			}
+		}
+		
+		/**
+		 * 礼包检测
+		 * 
+		 */		
+		public function checkActivity() : void
+		{
+			if(player.checkGlowingReward())
+			{
+				checkStretchShow(3, "礼包可领取");
+				_activityEffect.play();
+				_deformTip.addNewDeform((this.searchOf("Toolbar_World_Activity") as Button), "activity");
+			}
+			else
+			{
+				checkStretchShow(3);
+				_activityEffect.stop();
+				_deformTip.removeDeform("activity");
+			}
+		}
+		
+		/**
+		 * 练功房检测
+		 * 
+		 */		
+		public function checkRoleMartial() : void
+		{
+			if(player.checkMartialRole())
+				_view.world.addIconDeform(9);
+			else
+				_view.world.removeIconDeform(9);
+		}
+		
+		/**
+		 * 每日惊喜检测
+		 * 
+		 */		
+		public function checkDaily() : void
+		{
+			if(player.checkDaily() || (player.checkEndless() && player.mainRoleModel.info.lv >= 15) || player.missonInfo.checkTaskComplete()[2])
+				_view.world.addIconDeform(7);
+			else
+				_view.world.removeIconDeform(7);
+		}
+		
+		/**
+		 * 酒色财气检测
+		 * 
+		 */		
+		public function checkPluginGame() : void
+		{
+			if(player.vipInfo.checkLevelTwo())
+			{
+				if(player.pluginGameInfo.checkVIP())
+					_view.world.addIconDeform(8);
+				else
+					_view.world.removeIconDeform(8);
+			}
+			else
+			{
+				if(Data.instance.time.checkEveryDayPlay(player.pluginGameInfo.wine) || Data.instance.time.checkEveryDayPlay(player.pluginGameInfo.lechery) || Data.instance.time.checkEveryDayPlay(player.pluginGameInfo.money) || (Data.instance.time.checkEveryDayPlay(player.pluginGameInfo.breath) && player.mainRoleModel.info.lv >= 5))
+					_view.world.addIconDeform(8);
+				else 
+					_view.world.removeIconDeform(8);
+			}
+		}
+		
+		/**
+		 * 真假小宝检测
+		 * 
+		 */		
+		public function checkWorldBoss() : void
+		{
+			if(_status == "world")
+			{
+				if(player.checkLevelShow("4_1"))
+				{
+					if((!player.vipInfo.checkLevelThree() && player.worldBossInfo.isComplete == 1) || (player.vipInfo.checkLevelThree() && player.worldBossInfo.isComplete == 2))
+					{
+						checkStretchShow(2);
+						_deformTip.removeDeform("worldBoss");
+					}
+					else
+					{
+						checkStretchShow(2, "可以挑战真假小宝");
+						_deformTip.addNewDeform(_worldBossBtn, "worldBoss");
+					}
+					_worldBossBtn.visible = true;
+				}
+				else 
+					_worldBossBtn.visible = false;
+			}
+			else
+				_worldBossBtn.visible = false;
+			
+		}
+		
+		/**
+		 * 获得角色检测
+		 * 
+		 */		
+		public function addRoleDeform() : void
+		{
+			_deformTip.addNewDeform((this.searchOf("Toolbar_World_RoleSelect") as Button), "role");
+		}
+		
+		/**
+		 * 竞技场检测
+		 * 
+		 */		
+		public function checkPlayerFight() : void
+		{
+			if(_status == "world")
+			{
+				if(player.checkLevelShow("3_3"))
+				{
+					_playerFightBtn.visible = true;
+					if(player.checkPlayerFight())
+					{
+						checkStretchShow(1, "当前可在竞技场挑战");
+						_deformTip.addNewDeform(this.searchOf("Toolbar_World_PlayerFight"), "playerFight");
+					}
+					else
+					{
+						checkStretchShow(1);
+						_deformTip.removeDeform("playerFight");
+					}
+				}
+				else
+					_playerFightBtn.visible = false;
+			}
+			else
+			{
+				_playerFightBtn.visible = false;
+			}
+		}
+		
+		/**
+		 * 兔爷送礼
+		 * 
+		 */		
+		private function checkMidAutumn() : void
+		{
+			if(_status == "world")
+			{
+				var intervalTime:int = Data.instance.time.disDayNum("2013-10-01", Data.instance.time.curTimeStr.split(" ")[0]);
+				if(intervalTime >= 0)
+					(this.searchOf("Toolbar_World_MidAutumn") as Button).visible = false;
+				else
+				{
+					if(player.checkMidAutumn())
+						_deformTip.addNewDeform(this.searchOf("Toolbar_World_MidAutumn"), "midAutumn");
+					else
+						_deformTip.removeDeform("midAutumn");
+					
+					(this.searchOf("Toolbar_World_MidAutumn") as Button).visible = true;
+				}
+			}
+			else
+				(this.searchOf("Toolbar_World_MidAutumn") as Button).visible = false;
+		}
+		
+		/**
+		 * 每日必做检测
+		 * 
+		 */		
+		public function checkDailyWork() : void
+		{
+			if(player.dailyThingInfo.checkIsComplete())
+			{
+				checkStretchShow(0, "每日必做有未完成和未领取奖励的项目哦");
+				_deformTip.addNewDeform(searchOf("Toolbar_World_Daily_Work"), "dailyWork");
+			}
+			else
+			{
+				checkStretchShow(0);
+				_deformTip.removeDeform("dailyWork");
+			}	
+		}
+		
+		private var _stretchInfo:Array = ["", "", "", "", "", ""];
+		public function checkStretchShow(count:int, info:String = ""):void
+		{
+			_stretchInfo[count] = info;
+			var result:Boolean = false;
+			var resultInfo:String = "";
+			var count:int = 1;
+			for(var i:int = 0; i < _stretchInfo.length; i++)
+			{
+				if(_stretchInfo[i] != "")
+				{
+					if(resultInfo != "") resultInfo += "\n";
+					resultInfo += count + "." + _stretchInfo[i];
+					result = true;
+					count++;
+				}
+			}
+			if(result)
+			{
+				_propTip.removePropByName(searchOf("StretchBtn"));
+				_propTip.add({o:searchOf("StretchBtn"), m:{name:"",message:resultInfo}});
+				_deformTip.addNewDeform(this.searchOf("StretchBtn"), "StretchBtn");
+			}
+			else
+			{
+				_propTip.removePropByName(searchOf("StretchBtn"));
+				_deformTip.removeDeform("StretchBtn");
+			}
+			//_propTip.removePropByName(searchOf("StretchBtn"));
+		}
+		
+		/**
+		 * 关卡内任务按钮检测
+		 * 
+		 */		
+		public function checkTask() : void
+		{
+			if(player.missonInfo.checkTaskComplete()[2])
+			{
+				_deformTip.addNewDeform(_taskBtn, "task");
+				_taskEffect.play();
+			}
+			else
+			{
+				_deformTip.removeDeform("task");
+				_taskEffect.stop();
+			}
+		}
+		
+		override protected function getTextures(name:String, type:String) : Vector.<Texture>
+		{
+			var textures:Vector.<Texture>;
+			if (type == "public")
+			{
+				textures = _view.publicRes.interfaces(InterfaceTypes.GetTextures, name);
+			}
+			else if(type == "icon")
+			{
+				textures = _view.icon.interfaces(InterfaceTypes.GetTextures, name);
+			}
+			else
+			{
+				textures = _view.publicRes.interfaces(InterfaceTypes.GetTextures, name);
+			}
+			return textures;
+		}
+		
+		override protected function getTexture(name:String, type:String) : Texture
+		{
+			var texture:Texture;
+			if (type == "public")
+			{
+				texture = _view.publicRes.interfaces(InterfaceTypes.GetTexture, name);
+			}
+			else if(type == "icon")
+			{
+				texture = _view.icon.interfaces(InterfaceTypes.GetTexture, name);
+			}
+			else
+			{
+				texture = _view.publicRes.interfaces(InterfaceTypes.GetTexture, name);
+			}
+			return texture;
+		}
+		
+		override public function resetView() : void
+		{
+			player.removeEventListener(PlayerEvent.PLAYER_CHANGE,
+				function (e:Event) : void
+				{
+					renderPart();
+				});
+
+			//LayerManager.instance.gpu_stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDowns);
+		}
+		
+		override public function close():void
+		{
+			super.close();
+		}
+		
+		override public function hide() : void
+		{
+			super.hide();
+		}
+	}
+}

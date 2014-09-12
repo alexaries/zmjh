@@ -1,0 +1,812 @@
+package com.game.view.load
+{
+	import com.engine.net.GamePayFor4399;
+	import com.engine.net.GameRankListFor4399;
+	import com.engine.net.GameServerFor4399;
+	import com.engine.net.YuanChuangInface;
+	import com.game.manager.DebugManager;
+	import com.game.manager.LayerManager;
+	import com.game.template.GameConfig;
+	import com.game.template.InterfaceTypes;
+	import com.game.template.LayerTypes;
+	import com.game.template.V;
+	import com.game.view.BaseView;
+	import com.game.view.IView;
+	import com.greensock.TweenMax;
+	
+	import flash.display.Bitmap;
+	import flash.display.BitmapData;
+	import flash.display.Graphics;
+	import flash.display.Loader;
+	import flash.display.Shape;
+	import flash.display.Sprite;
+	import flash.display.Stage;
+	import flash.events.Event;
+	import flash.filters.GlowFilter;
+	import flash.geom.Point;
+	import flash.net.URLRequest;
+	import flash.sampler.getSize;
+	import flash.system.Security;
+	import flash.utils.ByteArray;
+	
+	import starling.animation.DelayedCall;
+	import starling.animation.Tween;
+	import starling.core.Starling;
+	import starling.display.DisplayObject;
+	import starling.display.Image;
+	import starling.display.MovieClip;
+	import starling.display.Sprite;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
+	import starling.filters.GrayscaleFilter;
+	import starling.text.TextField;
+	import starling.textures.Texture;
+	import starling.textures.TextureAtlas;
+	import starling.utils.HAlign;
+	import starling.utils.VAlign;
+
+	public class LoadView extends BaseView implements IView
+	{
+		public static const LOADING:String = "loading";
+		public static const SMALLLOADING:String = "smallloading";
+		// 大加载位置
+		public static const BIG_LOADING_POS:Point = new Point(286, 56);
+		// 小加载位置
+		public static const SMALL_LOADING_POS:Point = new Point(300, 400);
+		// 当前状态（大加载条还是小加载条）
+		private var _status:String = "";
+		private var _positionXML:XML;
+		private var _progressBar:Image;
+		private var _totalWidth:uint;
+		private var _progress:TextField;
+		private var _loadedSize:TextField;		
+		private var _small_progressBar:Image;
+		private var _small_totalWidth:uint;
+		private var _small_progress:TextField;
+		
+		
+		private var _titleTxAtlas:TextureAtlas;
+		public function get titleTxAtlas() : TextureAtlas
+		{
+			return 	_titleTxAtlas;
+		}
+		
+		public function LoadView()
+		{
+			_layer = LayerTypes.TOP;
+			_moduleName = V.LOAD;
+			_loaderModuleName = V.LOAD;
+			
+			super();
+		}
+		
+		public function interfaces(type:String = "", ...args) : *
+		{
+			if (type == "") type = InterfaceTypes.Show;
+
+			switch (type)
+			{
+				case InterfaceTypes.Show:
+					this.show();
+					break;
+				case InterfaceTypes.GetTexture:
+					return this.getTexture(args[0], "");
+					break;
+				case InterfaceTypes.GetTextures:
+					return this.getTextures(args[0], "");
+					break;
+			}
+		}
+		
+		override protected function show():void
+		{
+			// 如果处于开发版本，则从本地加载PlayerData.xml
+			if (DebugManager.instance.gameMode != V.RELEASE)
+			{
+				(GameConfig.instance.ASSETS[_moduleName]["res"] as Array).push("PlayerData.xml");
+			}
+			
+			// 加载进度条
+			if (loadBar == null)
+			{
+				_view.preload.interfaces();
+				this.loadBar = _view.preload.play;
+			}
+			
+			super.show();
+		}
+		
+		override protected function init() : void
+		{
+			if (isInit) return;
+			
+			super.init();
+			this.isInit = true;
+			
+			setCTRLMov();
+			hide();
+			initXML();
+			initTexture();
+			initUI();
+			getUI();
+			
+			_view.start.interfaces();
+		}
+		
+		
+		private var my_load:Loader;
+		/**
+		 * 配置4399外包壳 
+		 * 
+		 */		
+		private function setCTRLMov() : void
+		{
+			if(DebugManager.instance.gameMode == V.RELEASE)
+			{
+				my_load = new Loader();
+/*				//my_load.load(new URLRequest("http://cdn.comment.4399pk.com/control/ctrl_mo_v5.swf"));
+				my_load.load(new URLRequest("assets/ctrlmov4V122.swf"));
+				my_load.contentLoaderInfo.addEventListener(Event.COMPLETE, onCompleteFun);
+				setLocal(true);
+				/*GameServerFor4399.instance.serviceHold = Main.serviceHold;
+				GamePayFor4399.instance.serviceHold = Main.serviceHold;
+				GameRankListFor4399.instance.serviceHold = Main.serviceHold;
+				setLocal(false);*/
+			}
+			else if(DebugManager.instance.gameMode == V.DEVELOP)
+			{
+				my_load = new Loader();
+				my_load.load(new URLRequest("assets/ctrlmov4V122.swf"));
+				my_load.contentLoaderInfo.addEventListener(Event.COMPLETE, onCompleteFun);
+				setLocal(true);
+			}
+		}
+		
+		private function setLocal(isLocal:Boolean) : void
+		{
+			if(isLocal)
+			{
+				GameServerFor4399.instance.isLocal = true;
+				GamePayFor4399.instance.isLocal = true;
+				GameRankListFor4399.instance.isLocal = true;
+			}
+			else
+			{
+				GameServerFor4399.instance.isLocal = false;
+				GamePayFor4399.instance.isLocal = false;
+				GameRankListFor4399.instance.isLocal = false;
+			}
+		}
+		
+		public var loader:*;
+		private function onCompleteFun(e:Event) : void
+		{
+			var gameID:String = "100023042";
+			loader = my_load.content;
+			YuanChuangInface.getInstance().setInterface(
+				LayerManager.instance.cpu_stage,
+				loader,
+				gameID
+			);
+			
+			GameServerFor4399.instance.serviceHold = YuanChuangInface.getInstance();
+			GamePayFor4399.instance.serviceHold = YuanChuangInface.getInstance();
+			GameRankListFor4399.instance.serviceHold = YuanChuangInface.getInstance();
+		}
+		
+		
+		private function initXML() : void
+		{
+			if (!_positionXML)
+			{
+				_positionXML = getXMLData(_loadBaseName, GameConfig.LOAD_RES, "loadposition");
+			}
+		}
+		
+		private function initTexture() : void
+		{
+			if (!_titleTxAtlas)
+			{
+				var obj:*;
+				var textureXML:XML = getXMLData(_loadBaseName, GameConfig.LOAD_RES, "loading");			
+				obj = getAssetsObject(_loadBaseName, GameConfig.LOAD_RES, "Textures");
+				var textureTitle:Texture = Texture.fromBitmap(obj as Bitmap);
+				
+				_titleTxAtlas = new TextureAtlas(textureTitle, textureXML);
+				
+				textureXML = null;
+				(obj as Bitmap).bitmapData.dispose();
+				obj = null;
+			}
+		}
+		
+		private function initUI() : void
+		{			
+			var name:String;
+			var obj:DisplayObject;
+			var loadType:String;
+			for each(var items:XML in _positionXML.load)
+			{
+				loadType = items.@type;
+				for each(var element:XML in items.item)
+				{
+					name = loadType;
+					
+					if (!checkIndexof(name))
+					{
+						obj = createDisplayObject(element);
+						obj.layerName = loadType;
+						if (obj.layerName == LOADING)
+						{
+							obj.x += BIG_LOADING_POS.x;
+							obj.y += BIG_LOADING_POS.y;
+						}
+						
+						if (obj.layerName == SMALLLOADING)
+						{
+							obj.x += SMALL_LOADING_POS.x;
+							obj.y += SMALL_LOADING_POS.y;
+						}
+						
+						_uiLibrary.push(obj);
+					}
+				}
+			}
+		}
+		
+		private function getUI() : void
+		{
+			if (!_progressBar)
+			{
+				_progressBar = this.searchOf("loadingProgress");
+				_totalWidth = _progressBar.width;
+			}			
+			if (!_progress) 
+			{
+				_progress = this.searchOf("Tx_LoadingPresent");
+				_progress.fontName = "宋体";
+			}
+			
+			if (!_loadedSize) 
+			{
+				_loadedSize = searchOf("Tx_LoadingSize");
+				_loadedSize.fontName = "宋体";
+			}
+			
+			if (!_gameScore) 
+			{
+				_gameScore = searchOf("TX_gameScore");
+			}
+			
+			if (!_hitCount) 
+			{
+				_hitCount = searchOf("TX_hitCount");
+			}
+			
+			
+		
+			if (!_small_progressBar)
+			{
+				_small_progressBar = searchOf("smallLoadPro");
+				_small_totalWidth = _small_progressBar.width;
+			}
+			if (!_small_progress) _small_progress = searchOf("Tx_LoadInfo");
+			
+			
+			
+
+		}
+		
+		private var numEffect:TextField;
+		
+		public function loadProgressBar(name:String, percent:Number, loadedSize:int, totalSize:int) : void
+		{	
+			
+			if (_status != LoadView.LOADING)
+			{
+				_status = LoadView.LOADING;
+				checkStatus();
+			}
+			
+			this.display();
+			this.panel.parent.addChild(this.panel);
+			_progressBar.scaleX = percent;
+			
+			_progress.text = "已加载:" + Math.floor(percent * 100).toString() + "%";
+			_loadedSize.text = Math.floor(loadedSize/1024) + "KB";// + "/" + Math.floor(totalSize/1024) + "KB";
+			
+			if(percent==1){
+				_view.removeFromFrameProcessList("dropItem");
+				panel.removeEventListener(TouchEvent.TOUCH,onTouchFunction);
+				disposeLineArr();
+				disposeImageArr();
+				disposeItemArr();
+				_cutLayer=null;
+			}
+			
+		}
+		
+		
+		/**
+		 * 切切小游戏
+		 */		
+		private static const BOMB:String = "bomb";
+		private static const STONE:String = "stone";
+		private static const BAOZI:String = "baozi";
+		
+		
+		
+
+		//鼠标坐标
+		private var _mouseX:int;
+		private var _mouseY:int;
+		//刀片轨迹容器
+		private var _cutLayer:flash.display.Sprite;
+		//游戏得分
+		private var _gameScore:TextField;
+		private var _hitCount:TextField;
+		private var gameScore:uint;//得分数
+		private var hitCount:int;//连击数
+		private var _itemArr:Array = [];//物品数组
+		private var _lineArr:Array = [];//轨迹数组
+		private var _imageArr:Array = [];//轨迹图像数组
+
+		
+
+		/**
+		 * 切切游戏主循环
+		 */	
+		public function startLoadGame():void{
+			_gameScore.text = "得分:0";
+			_hitCount.text="连击:0";
+			_view.addToFrameProcessList("dropItem",onDropItemAndCheck);
+			panel.addEventListener(TouchEvent.TOUCH,onTouchFunction);
+			_cutLayer = new flash.display.Sprite;
+			_cutLayer.cacheAsBitmap=true;
+			_cutLayer.filters=[new GlowFilter(0x00CCFF, 1, 10, 10, 2, 1, false, false)];
+		}
+		
+
+		/**
+		 * 鼠标点击与拖动响应
+		 */	
+		private function onTouchFunction(e:TouchEvent):void{
+			var touch:Touch = e.getTouch(panel);
+			if(!touch) return;
+			if(touch.phase == TouchPhase.BEGAN){
+				_mouseX = touch.globalX; //开始点的位置
+				_mouseY = touch.globalY;
+			}
+			else if(touch.phase == TouchPhase.MOVED){
+				//轨迹逐渐变小，然后将变小的轨迹移除
+				for (var i:int=0;i<_lineArr.length;i++) 
+				{
+					_lineArr[i].update();
+					if(_lineArr[i].linesize<1){
+						_lineArr[i].graphics.clear();
+						_cutLayer.removeChild(_lineArr[i]);
+						_lineArr.splice(i,1);
+					}
+				}
+				
+				//在当前位置生成新的轨迹
+				var line:Line = new Line(_mouseX, _mouseY, touch.globalX, touch.globalY);
+				_lineArr.push(line);
+				_cutLayer.addChild(line);
+				
+				//生成刀片轨迹纹理
+				var _bmpData:BitmapData = new BitmapData(GameConfig.CAMERA_WIDTH , GameConfig.CAMERA_HEIGHT , true, 0);
+				_bmpData.draw(_cutLayer);
+				var _cutTexture:Texture = Texture.fromBitmapData(_bmpData);
+				var _cutImage:Image = new Image(_cutTexture);
+				panel.addChild(_cutImage);
+				
+				_imageArr.push(_cutImage);
+				Starling.juggler.delayCall(disposeImage,0.2,_cutImage);//清除刀轨迹
+					
+				_mouseX = touch.globalX; //刷新开始点的位置
+				_mouseY = touch.globalY;
+				_bmpData.dispose();
+
+			}
+			else if(touch.phase == TouchPhase.ENDED){
+				disposeLineArr();
+				disposeImageArr();
+				_mouseX = 0; //清空鼠标坐标
+				_mouseY = 0;
+			}
+		}
+		
+		/**
+		 * 清空物品数组
+		 */	
+		private function disposeItemArr():void{
+			while(_itemArr.length>0){
+				var tempItem:Image=_itemArr[0];
+				_itemArr.splice(0,1);
+				panel.removeChild(tempItem);
+				tempItem.texture.dispose();
+				tempItem.dispose();
+				tempItem=null;
+			}
+		}
+		
+		/**
+		 * 清空轨迹数组
+		 */	
+		private function disposeLineArr():void{
+			while(_lineArr.length>0){
+				var tempLine:Line=_lineArr[0];
+				_lineArr.splice(0,1);
+				tempLine.graphics.clear();
+				_cutLayer.removeChild(tempLine);
+			}
+		}
+		
+		/**
+		 * 清空轨迹图片数组
+		 */	
+		private function disposeImageArr():void{
+			while(_imageArr.length>0){
+				var tempImage:Image=_imageArr[0];
+				_imageArr.splice(0,1);
+				panel.removeChild(tempImage);
+				tempImage.texture.dispose();
+				tempImage.dispose();
+				tempImage=null;
+				
+			}
+		}
+
+		/**
+		 * 清空指定图片
+		 */	
+		private function disposeImage(...args):void{
+				panel.removeChild(args[0]);
+				args[0].texture.dispose();
+				args[0].dispose();
+				args[0]=null;	
+		}
+
+		
+
+		
+		/**
+		 * 随机物品类型
+		 * 
+		 */	
+		private function setRandomItem():String{
+			var itemName:String;
+			var randomNum:int=int(Math.random()*10);
+			if(randomNum<6){
+				itemName=BAOZI;
+			}
+			else if(randomNum>8){
+				itemName=BOMB;
+			}
+			else{
+				itemName=STONE;
+			}
+			return itemName;
+		}
+		
+		
+		private static const DROP_SPEED:Number = -14; //物品初始速度
+		private static const SCALE_SPEED:Number = 0.008; //物品变大速度
+		private static const upG:Number = 0.2; //上抛加速度
+		private static const downG:Number = 0.6; //下坠加速度
+		
+		/**
+		 * 物品运动与碰撞检测函数
+		 * 
+		 */	
+		private function onDropItemAndCheck():void{
+			
+			//生成随机掉落物品
+			var radomNum:int=int(Math.random()*10);
+			if(radomNum>8){
+				var itemName:String=setRandomItem();
+				var obj:Image = new Image(getTexture(itemName, ""));
+				panel.addChildAt(obj,1);
+				_itemArr.push(obj);
+				obj.x=Math.round(Math.random()*700)+110
+				obj.y=360;
+				obj.scaleX=obj.scaleY=0.2
+				obj.data=[DROP_SPEED,itemName];//存放速度与物品类型
+			}
+			
+			//物品运动循环
+			for each(var i:Image in _itemArr){
+				if(i.scaleX<1 && i.scaleY<1){
+					i.scaleX+=SCALE_SPEED;
+					i.scaleY+=SCALE_SPEED;
+				}else{
+					i.scaleX=1;
+					i.scaleY=1;
+				}
+				
+				//物品是否抛至前景判定
+				if(int(i.data[0])<0){
+					i.data[0]+=upG;
+				}else{
+					panel.setChildIndex(i,panel.numChildren-1);
+					i.data[0]+=downG;
+					//物品鼠标碰撞检测
+					if(Math.abs(i.x + i.width * .5 - _mouseX ) < (i.width * .5) 
+						&& Math.abs(i.y + i.height * .5 - _mouseY ) < (i.height * .5))
+					{
+						setGameScore(i.data[1]);
+						addHitMC(i.x,i.y,i.data[1]);
+						addNumEffect(i.x,i.y,i.data[1]);
+						disposeItem(i);
+					}
+				}
+				
+				//检测物品是否超屏，超屏则移除
+				if(i.y<=590){
+					i.y+=i.data[0];
+				}else{
+					disposeItem(i)
+				}
+			}
+			
+		}
+		
+		
+		/**
+		 * 添加数字效果MC
+		 * @param x,y
+		 * 
+		 */	
+		private function addNumEffect(x:int,y:int,itemType:String):void{
+			var tf:TextField;	
+			switch(itemType){
+				case BAOZI:
+					tf = new TextField(150, 30,"+10");	
+					tf.fontName ="HKHB";
+					tf.text="+"+int(Math.max(10,10*(Math.floor(hitCount/10))));
+					tf.hAlign = HAlign.LEFT;
+					tf.vAlign = VAlign.CENTER;
+					tf.fontSize=18 
+					tf.color=0Xffffff;
+					tf.x = x+25;
+					tf.y = y+40;
+					panel.addChild(tf);
+					TweenMax.to(tf,2,{alpha:0,y:y-50,onComplete: removeTF,onCompleteParams:[tf]});
+					break;
+				case STONE:
+					tf = new TextField(150, 30,"-10");	
+					tf.fontName ="HKHB"; 
+					tf.hAlign = HAlign.LEFT;
+					tf.vAlign = VAlign.CENTER;
+					tf.fontSize=18 
+					tf.color=0xff0000;
+					tf.x = x+25;
+					tf.y = y+40;
+					panel.addChild(tf);
+					TweenMax.to(tf,2,{alpha:0,y:y-50,onComplete: removeTF,onCompleteParams:[tf]});
+					break;
+				case BOMB:
+					break;
+			}
+						
+
+		}
+		
+		/**
+		 * 文本删除自身
+		 * @param tf
+		 * 
+		 */	
+		private function removeTF(tf:TextField):void{
+			panel.removeChild(tf);
+			tf.dispose();
+			tf=null;
+		}
+		
+		/**
+		 * 添加击打效果MC
+		 * @param x,y
+		 * 
+		 */	
+		private function addHitMC(x:int,y:int,itemType:String):void{
+			switch(itemType){
+				case BAOZI:
+					var baoziFrames:Vector.<Texture> = this.getTextures("包子","");
+					var baoziEffect:MovieClip = new MovieClip(baoziFrames, 12);
+					baoziEffect.x=x-40;
+					baoziEffect.y=y-20;
+					panel.addChild(baoziEffect);
+					Starling.juggler.add(baoziEffect);
+					Starling.juggler.delayCall(disposeMC, 0.4, baoziEffect);
+					break;
+				case STONE:
+					var hitFrames:Vector.<Texture> = this.getTextures("Hit","");
+					var hitEffect:MovieClip = new MovieClip(hitFrames, 6);
+					hitEffect.x=x;
+					hitEffect.y=y;
+					hitEffect.scaleX=2;
+					hitEffect.scaleY=2;
+					panel.addChild(hitEffect);
+					Starling.juggler.add(hitEffect);
+					Starling.juggler.delayCall(disposeMC, 0.6, hitEffect);
+					break;
+				case BOMB:
+					var bombFrames:Vector.<Texture> = this.getTextures("bz","");
+					var bombEffect:MovieClip = new MovieClip(bombFrames, 8);
+					bombEffect.x=x-90;
+					bombEffect.y=y-40;
+					panel.addChild(bombEffect);
+					addBlinkEffect();
+					Starling.juggler.add(bombEffect);
+					Starling.juggler.delayCall(disposeMC, 0.6, bombEffect);
+					disposeItemArr();
+					break;
+			}
+		}
+		
+		
+
+		private var _blinkImage:Image;
+		/**
+		 * 添加闪屏效果
+		 * 
+		 */	
+		private function addBlinkEffect():void{
+			
+			var whiteShape:Shape = new Shape();
+			whiteShape.graphics.beginFill(0xFFFFFF, 1);
+			whiteShape.graphics.drawRect(0, 0, GameConfig.CAMERA_WIDTH, GameConfig.CAMERA_HEIGHT);
+			whiteShape.graphics.endFill();
+			
+			var bitmapWhite:BitmapData = new BitmapData(GameConfig.CAMERA_WIDTH, GameConfig.CAMERA_HEIGHT, true, 0);
+			bitmapWhite.draw(whiteShape);
+			
+			var lightWhite:Texture = Texture.fromBitmapData(bitmapWhite);
+			_blinkImage = new Image(lightWhite);
+			_blinkImage.x = 0;
+			_blinkImage.y = 0;
+			_blinkImage.alpha = 1;
+			_blinkImage.data=[0];//存入闪屏次数
+			addBlink(_blinkImage)
+			//TweenMax.to(_blinkImage, 0.25, {alpha:0,color:0xff0000, yoyo:true, repeat:2, onComplete: disposeImage,onCompleteParams:[_blinkImage]});
+	
+		}
+		
+		private function removeblink(...args):void{
+			panel.removeChild(args[0]);
+			args[0].data[0]++;
+			if(args[0].data[0]<3){//闪屏3次
+				Starling.juggler.delayCall(addBlink,0.1,args[0]);
+			}else{
+				disposeImage(args[0]);
+			}
+			
+		}
+		
+		private function addBlink(...args):void{
+			panel.addChild(args[0]);
+			Starling.juggler.delayCall(removeblink,0.1,args[0])
+		}
+		
+		/**
+		 * MC播放结束删除自身
+		 * @param mc
+		 * 
+		 */		
+		private function disposeMC(mc:MovieClip) : void
+		{
+			mc.stop();
+			panel.removeChild(mc);
+			mc.texture.dispose();
+			mc.dispose();
+			mc = null;
+		}
+		
+		/**
+		 * 物品删除自身
+		 * @param image
+		 * 
+		 */
+		private function disposeItem(image:Image):void{
+			_itemArr.splice(_itemArr.indexOf(image),1);
+			panel.removeChild(image);
+			image.texture.dispose();
+			image.dispose();
+			image=null;
+		}
+		
+		/**
+		 * 游戏得分计算
+		 * 
+		 */	
+		private function setGameScore(itemType:String):void{
+			switch(itemType){
+				case BAOZI:
+					hitCount++;
+					gameScore+=Math.max(10,10*(Math.floor(hitCount/10)));
+					break;
+				case STONE:
+					hitCount=0
+					if(gameScore>=10){
+						gameScore-=10;
+					}
+					break;
+				case BOMB:
+					gameScore=0;
+					hitCount=0
+					break;	
+			}
+			_gameScore.text = "得分:" + gameScore;
+			_hitCount.text = "连击:" + hitCount;
+		}
+		
+		
+		
+		public function smallLoadProgressBar(name:String, percent:Number, loadedSize:int, totalSize:int) : void
+		{
+			if (_status != LoadView.SMALLLOADING)
+			{
+				_status = LoadView.SMALLLOADING;
+				checkStatus();
+			}
+			
+			this.display();
+			this.panel.parent.addChild(this.panel);
+			_small_progressBar.scaleX = percent;
+			
+			_small_progress.text = "已加载:" + Math.floor(percent * 100).toString() + "%		" + Math.floor(loadedSize/1024) + "KB";;
+
+		}
+		
+		private function checkStatus() : void
+		{
+			for (var i:int = 0; i < _uiLibrary.length; i++)
+			{
+				if ((_uiLibrary[i] as DisplayObject).layerName == _status)
+				{
+					(_uiLibrary[i] as DisplayObject).visible = true;
+				}
+				else
+				{
+					(_uiLibrary[i] as DisplayObject).visible = false;
+				}
+			}
+		}
+		
+		override protected function getTextures(name:String, type:String) : Vector.<Texture>
+		{
+			var textures:Vector.<Texture> = _titleTxAtlas.getTextures(name);
+			
+			return textures;
+		}
+		
+		override protected function getTexture(name:String, type:String) : Texture
+		{
+			var texture:Texture = _titleTxAtlas.getTexture(name);
+			return texture;
+		}
+		
+		/**
+		 * 每帧调用 
+		 * 
+		 */
+		override public function update():void
+		{
+			super.update();
+		}
+		
+		override public function close():void
+		{
+			super.close();
+		}
+		
+		override public function hide() : void
+		{
+			super.hide();
+		}
+	}
+}
+
+
