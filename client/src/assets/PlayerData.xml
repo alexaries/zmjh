@@ -1,0 +1,1333 @@
+<DATA>
+  <dice>278</dice>
+  <money>203883</money>
+  <fight_soul>451805</fight_soul>
+  <strength_exp>12</strength_exp>
+  <pass_level>
+    <level name="1_1" lv="3"/>
+    <level name="1_2" lv="3"/>
+    <level name="1_3" lv="3"/>
+    <level name="2_1" lv="3"/>
+    <level name="2_2" lv="3"/>
+    <level name="2_3" lv="3"/>
+    <level name="3_1" lv="3"/>
+    <level name="3_2" lv="3"/>
+    <level name="3_3" lv="3"/>
+    <level name="4_1" lv="3"/>
+    <level name="4_2" lv="3"/>
+    <level name="1_4" lv="2"/>
+    <level name="4_3" lv="3"/>
+    <level name="2_4" lv="2"/>
+    <level name="5_1" lv="3"/>
+    <level name="3_4" lv="2"/>
+    <level name="4_4" lv="2"/>
+    <level name="5_2" lv="3"/>
+    <level name="5_3" lv="2"/>
+    <level name="6_1" lv="1"/>
+  </pass_level>
+  <fightAttach>
+    <front hp="53" mp="53" atk="53" def="53" spd="0" evasion="53" crit="53" hit="0" toughness="0" ats="0" adf="0" exp="0"/>
+    <middle hp="53" mp="53" atk="53" def="53" spd="0" evasion="53" crit="53" hit="0" toughness="0" ats="0" adf="0" exp="0"/>
+    <back hp="53" mp="53" atk="53" def="53" spd="0" evasion="52" crit="53" hit="0" toughness="0" ats="0" adf="0" exp="0"/>
+  </fightAttach>
+  <formation front="韦小宝（夜）" middle="瘦头陀" back="小玄子（夜）"/>
+  <pack>
+    <equip curid="1602">
+      <item mid="7" id="3" lv="0" hp="0" mp="0" atk="0" def="0" spd="5" evasion="0" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="309" id="80" lv="5" hp="0" mp="0" atk="3" def="40" spd="0" evasion="0" crit="31" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="335" id="81" lv="3" hp="0" mp="0" atk="4" def="-1" spd="38" evasion="0" crit="40" hp_compose="5" mp_compose="15" atk_compose="4" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="364" id="100" lv="8" hp="41" mp="0" atk="75" def="10" spd="1" evasion="30" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="8" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="493" id="64" lv="7" hp="0" mp="0" atk="130" def="0" spd="0" evasion="0" crit="68" hp_compose="35" mp_compose="0" atk_compose="12" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="494" id="65" lv="6" hp="0" mp="0" atk="0" def="75" spd="0" evasion="66" crit="0" hp_compose="0" mp_compose="0" atk_compose="8" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="495" id="66" lv="6" hp="0" mp="0" atk="0" def="0" spd="72" evasion="34" crit="30" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="543" id="65" lv="7" hp="0" mp="0" atk="0" def="80" spd="0" evasion="65" crit="0" hp_compose="15" mp_compose="0" atk_compose="0" def_compose="16" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="565" id="64" lv="6" hp="0" mp="0" atk="133" def="0" spd="0" evasion="0" crit="65" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="567" id="66" lv="6" hp="0" mp="0" atk="0" def="0" spd="77" evasion="33" crit="33" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="616" id="64" lv="7" hp="0" mp="0" atk="130" def="0" spd="0" evasion="0" crit="68" hp_compose="0" mp_compose="0" atk_compose="19" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="617" id="65" lv="5" hp="0" mp="0" atk="0" def="77" spd="0" evasion="65" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="855" id="89" lv="5" hp="0" mp="0" atk="-2" def="50" spd="0" evasion="41" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="860" id="131" lv="6" hp="92" mp="0" atk="5" def="55" spd="5" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="861" id="130" lv="5" hp="86" mp="0" atk="109" def="-2" spd="1" evasion="0" crit="55" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="882" id="102" lv="0" hp="40" mp="0" atk="-3" def="5" spd="34" evasion="38" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="899" id="5" lv="0" hp="0" mp="0" atk="0" def="10" spd="0" evasion="0" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="1140" id="134" lv="0" hp="110" mp="0" atk="6" def="65" spd="1" evasion="0" crit="66" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="1142" id="135" lv="0" hp="114" mp="0" atk="9" def="-2" spd="65" evasion="0" crit="61" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="1143" id="133" lv="0" hp="110" mp="0" atk="110" def="-1" spd="1" evasion="0" crit="62" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1145" id="133" lv="0" hp="118" mp="0" atk="109" def="-2" spd="3" evasion="0" crit="60" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1146" id="135" lv="0" hp="115" mp="0" atk="5" def="-3" spd="67" evasion="0" crit="64" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1168" id="138" lv="0" hp="137" mp="0" atk="6" def="-3" spd="72" evasion="0" crit="70" hp_compose="0" mp_compose="0" atk_compose="19" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="1169" id="138" lv="0" hp="126" mp="0" atk="9" def="-1" spd="74" evasion="0" crit="76" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1170" id="138" lv="0" hp="137" mp="0" atk="7" def="-2" spd="74" evasion="0" crit="72" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1174" id="136" lv="6" hp="136" mp="0" atk="129" def="-1" spd="3" evasion="0" crit="70" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="19" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="1175" id="138" lv="5" hp="126" mp="0" atk="5" def="-2" spd="78" evasion="0" crit="70" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="1182" id="136" lv="5" hp="128" mp="0" atk="142" def="-1" spd="1" evasion="0" crit="72" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="38" isEquiped="true"/>
+      <item mid="1183" id="137" lv="7" hp="125" mp="0" atk="7" def="78" spd="2" evasion="0" crit="70" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="1184" id="137" lv="4" hp="126" mp="0" atk="9" def="75" spd="4" evasion="0" crit="78" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="1240" id="132" lv="0" hp="94" mp="0" atk="7" def="-5" spd="58" evasion="0" crit="52" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1243" id="131" lv="0" hp="92" mp="0" atk="7" def="58" spd="1" evasion="0" crit="53" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1399" id="133" lv="1" hp="114" mp="0" atk="114" def="-5" spd="1" evasion="0" crit="63" hp_compose="0" mp_compose="12" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="true"/>
+      <item mid="1400" id="133" lv="0" hp="111" mp="0" atk="110" def="-5" spd="1" evasion="0" crit="67" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1401" id="135" lv="0" hp="107" mp="0" atk="6" def="-4" spd="66" evasion="0" crit="70" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1402" id="134" lv="0" hp="105" mp="0" atk="5" def="65" spd="2" evasion="0" crit="60" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1465" id="112" lv="0" hp="0" mp="0" atk="119" def="-2" spd="0" evasion="0" crit="63" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1466" id="113" lv="0" hp="0" mp="0" atk="2" def="72" spd="0" evasion="0" crit="67" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1467" id="112" lv="0" hp="0" mp="0" atk="136" def="-2" spd="0" evasion="0" crit="60" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1468" id="112" lv="0" hp="0" mp="0" atk="138" def="-5" spd="0" evasion="0" crit="63" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1470" id="114" lv="0" hp="0" mp="0" atk="7" def="-1" spd="67" evasion="0" crit="65" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1471" id="112" lv="0" hp="0" mp="0" atk="120" def="-1" spd="0" evasion="0" crit="65" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1472" id="113" lv="0" hp="0" mp="0" atk="3" def="70" spd="0" evasion="0" crit="66" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1473" id="112" lv="0" hp="0" mp="0" atk="121" def="-1" spd="0" evasion="0" crit="64" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1474" id="114" lv="0" hp="0" mp="0" atk="2" def="-1" spd="67" evasion="0" crit="64" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1503" id="92" lv="0" hp="0" mp="0" atk="4" def="61" spd="0" evasion="0" crit="57" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1509" id="96" lv="0" hp="0" mp="0" atk="-4" def="5" spd="59" evasion="52" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1511" id="91" lv="0" hp="0" mp="0" atk="122" def="-5" spd="0" evasion="0" crit="55" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1512" id="91" lv="0" hp="0" mp="0" atk="124" def="-3" spd="0" evasion="0" crit="59" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1514" id="94" lv="0" hp="0" mp="0" atk="105" def="1" spd="0" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1515" id="94" lv="0" hp="0" mp="0" atk="112" def="5" spd="0" evasion="58" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1516" id="95" lv="0" hp="0" mp="0" atk="-1" def="61" spd="0" evasion="60" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1517" id="95" lv="0" hp="0" mp="0" atk="-4" def="72" spd="0" evasion="56" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1518" id="95" lv="0" hp="0" mp="0" atk="-1" def="61" spd="0" evasion="59" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1519" id="91" lv="0" hp="0" mp="0" atk="118" def="-4" spd="0" evasion="0" crit="56" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1520" id="92" lv="0" hp="0" mp="0" atk="1" def="64" spd="0" evasion="0" crit="51" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1522" id="92" lv="0" hp="0" mp="0" atk="4" def="64" spd="0" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1523" id="95" lv="0" hp="0" mp="0" atk="-7" def="63" spd="0" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1524" id="95" lv="0" hp="0" mp="0" atk="-1" def="62" spd="0" evasion="58" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1526" id="93" lv="0" hp="0" mp="0" atk="2" def="-1" spd="57" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1532" id="93" lv="0" hp="0" mp="0" atk="3" def="-5" spd="60" evasion="0" crit="54" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1533" id="92" lv="0" hp="0" mp="0" atk="2" def="63" spd="0" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1534" id="91" lv="0" hp="0" mp="0" atk="105" def="-1" spd="0" evasion="0" crit="54" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1535" id="91" lv="0" hp="0" mp="0" atk="106" def="-3" spd="0" evasion="0" crit="52" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1536" id="96" lv="0" hp="0" mp="0" atk="-1" def="3" spd="57" evasion="56" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1537" id="96" lv="0" hp="0" mp="0" atk="-1" def="2" spd="62" evasion="58" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1538" id="95" lv="0" hp="0" mp="0" atk="-3" def="68" spd="0" evasion="56" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1539" id="96" lv="0" hp="0" mp="0" atk="-1" def="2" spd="65" evasion="53" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1540" id="96" lv="0" hp="0" mp="0" atk="-3" def="4" spd="58" evasion="59" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1541" id="95" lv="0" hp="0" mp="0" atk="-6" def="60" spd="0" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1542" id="94" lv="0" hp="0" mp="0" atk="103" def="5" spd="0" evasion="56" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1543" id="96" lv="0" hp="0" mp="0" atk="-3" def="1" spd="58" evasion="54" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1544" id="96" lv="0" hp="0" mp="0" atk="-4" def="1" spd="58" evasion="58" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1545" id="96" lv="0" hp="0" mp="0" atk="-4" def="1" spd="57" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1546" id="93" lv="0" hp="0" mp="0" atk="1" def="-1" spd="58" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1547" id="92" lv="0" hp="0" mp="0" atk="4" def="64" spd="0" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1548" id="91" lv="0" hp="0" mp="0" atk="103" def="-3" spd="0" evasion="0" crit="54" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1549" id="91" lv="0" hp="0" mp="0" atk="125" def="-1" spd="0" evasion="0" crit="51" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1551" id="94" lv="0" hp="0" mp="0" atk="108" def="2" spd="0" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1552" id="96" lv="0" hp="0" mp="0" atk="-7" def="5" spd="58" evasion="52" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1553" id="94" lv="0" hp="0" mp="0" atk="105" def="1" spd="0" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1555" id="93" lv="0" hp="0" mp="0" atk="5" def="-2" spd="59" evasion="0" crit="59" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1556" id="91" lv="0" hp="0" mp="0" atk="115" def="-5" spd="0" evasion="0" crit="54" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1557" id="91" lv="0" hp="0" mp="0" atk="126" def="-1" spd="0" evasion="0" crit="53" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1558" id="96" lv="0" hp="0" mp="0" atk="-1" def="2" spd="59" evasion="52" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1559" id="95" lv="0" hp="0" mp="0" atk="-6" def="62" spd="0" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1560" id="96" lv="0" hp="0" mp="0" atk="-3" def="2" spd="64" evasion="59" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1563" id="92" lv="0" hp="0" mp="0" atk="1" def="64" spd="0" evasion="0" crit="52" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1564" id="93" lv="0" hp="0" mp="0" atk="3" def="-1" spd="61" evasion="0" crit="51" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1565" id="92" lv="0" hp="0" mp="0" atk="6" def="67" spd="0" evasion="0" crit="51" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1566" id="93" lv="0" hp="0" mp="0" atk="1" def="-1" spd="57" evasion="0" crit="54" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1567" id="91" lv="0" hp="0" mp="0" atk="121" def="-3" spd="0" evasion="0" crit="53" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1568" id="93" lv="0" hp="0" mp="0" atk="1" def="-5" spd="57" evasion="0" crit="56" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1569" id="93" lv="0" hp="0" mp="0" atk="2" def="-1" spd="61" evasion="0" crit="56" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1570" id="92" lv="0" hp="0" mp="0" atk="7" def="64" spd="0" evasion="0" crit="51" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1571" id="91" lv="0" hp="0" mp="0" atk="111" def="-1" spd="0" evasion="0" crit="58" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1572" id="91" lv="0" hp="0" mp="0" atk="103" def="-4" spd="0" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1573" id="91" lv="0" hp="0" mp="0" atk="105" def="-5" spd="0" evasion="0" crit="53" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1574" id="96" lv="0" hp="0" mp="0" atk="-1" def="1" spd="63" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1575" id="95" lv="0" hp="0" mp="0" atk="-4" def="72" spd="0" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1576" id="94" lv="0" hp="0" mp="0" atk="104" def="1" spd="0" evasion="52" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1577" id="96" lv="0" hp="0" mp="0" atk="-1" def="2" spd="58" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1578" id="92" lv="0" hp="0" mp="0" atk="1" def="60" spd="0" evasion="0" crit="59" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1579" id="93" lv="0" hp="0" mp="0" atk="6" def="-1" spd="64" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1580" id="92" lv="0" hp="0" mp="0" atk="3" def="60" spd="0" evasion="0" crit="58" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1581" id="91" lv="0" hp="0" mp="0" atk="109" def="-1" spd="0" evasion="0" crit="52" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1582" id="92" lv="0" hp="0" mp="0" atk="2" def="65" spd="0" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1583" id="92" lv="0" hp="0" mp="0" atk="1" def="67" spd="0" evasion="0" crit="58" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1585" id="91" lv="0" hp="0" mp="0" atk="105" def="-4" spd="0" evasion="0" crit="50" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1586" id="95" lv="0" hp="0" mp="0" atk="-6" def="65" spd="0" evasion="52" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1587" id="94" lv="0" hp="0" mp="0" atk="103" def="3" spd="0" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1588" id="95" lv="0" hp="0" mp="0" atk="-2" def="60" spd="0" evasion="51" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1589" id="94" lv="0" hp="0" mp="0" atk="103" def="2" spd="0" evasion="55" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1590" id="95" lv="0" hp="0" mp="0" atk="-1" def="60" spd="0" evasion="50" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1591" id="94" lv="0" hp="0" mp="0" atk="115" def="3" spd="0" evasion="56" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1592" id="91" lv="0" hp="0" mp="0" atk="111" def="-1" spd="0" evasion="0" crit="59" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1594" id="91" lv="0" hp="0" mp="0" atk="114" def="-5" spd="0" evasion="0" crit="60" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1595" id="93" lv="0" hp="0" mp="0" atk="2" def="-3" spd="59" evasion="0" crit="55" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1596" id="92" lv="0" hp="0" mp="0" atk="6" def="60" spd="0" evasion="0" crit="54" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1597" id="91" lv="0" hp="0" mp="0" atk="127" def="-4" spd="0" evasion="0" crit="52" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1598" id="4" lv="0" hp="0" mp="0" atk="24" def="0" spd="0" evasion="0" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1599" id="11" lv="0" hp="0" mp="0" atk="0" def="23" spd="0" evasion="0" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1600" id="11" lv="0" hp="0" mp="0" atk="0" def="21" spd="0" evasion="0" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1601" id="40" lv="0" hp="0" mp="0" atk="79" def="0" spd="0" evasion="0" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+      <item mid="1602" id="25" lv="0" hp="0" mp="0" atk="77" def="0" spd="0" evasion="0" crit="0" hp_compose="0" mp_compose="0" atk_compose="0" def_compose="0" spd_compose="0" evasion_compose="0" crit_compose="0" isEquiped="false"/>
+    </equip>
+    <prop>
+      <item id="1" num="99"/>
+      <item id="2" num="65"/>
+      <item id="3" num="52"/>
+      <item id="40" num="0"/>
+      <item id="12" num="0"/>
+      <item id="34" num="0"/>
+      <item id="35" num="84"/>
+      <item id="36" num="99"/>
+      <item id="37" num="35"/>
+      <item id="38" num="41"/>
+      <item id="11" num="90"/>
+      <item id="13" num="2"/>
+      <item id="14" num="702"/>
+      <item id="15" num="358"/>
+      <item id="16" num="13"/>
+      <item id="17" num="34"/>
+      <item id="18" num="277"/>
+      <item id="19" num="170"/>
+      <item id="20" num="631"/>
+      <item id="48" num="0"/>
+      <item id="44" num="0"/>
+      <item id="45" num="4"/>
+      <item id="47" num="4"/>
+      <item id="46" num="69"/>
+      <item id="23" num="0"/>
+      <item id="24" num="0"/>
+      <item id="25" num="0"/>
+      <item id="49" num="0"/>
+      <item id="26" num="0"/>
+      <item id="50" num="0"/>
+      <item id="51" num="0"/>
+      <item id="32" num="75"/>
+      <item id="27" num="0"/>
+      <item id="39" num="0"/>
+      <item id="21" num="0"/>
+      <item id="22" num="0"/>
+      <item id="28" num="0"/>
+      <item id="53" num="6"/>
+      <item id="54" num="0"/>
+      <item id="52" num="0"/>
+      <item id="29" num="0"/>
+    </prop>
+  </pack>
+  <roles>
+    <role>
+      <roleName>韦小宝（夜）</roleName>
+      <lv>107</lv>
+      <exp>75802</exp>
+      <quality>1</quality>
+      <equip>
+        <weapon>1174</weapon>
+        <cloth>1183</cloth>
+        <thing>1175</thing>
+      </equip>
+      <skill>
+        <skill1>扔化尸毒</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill>|丢石子|扔酒罐|扔石灰|扔毒镖|扔蒙汉药|丢炸弹|扔化尸毒</learnedSkill>
+      </skill>
+    </role>
+    <role>
+      <roleName>醉汉</roleName>
+      <lv>9</lv>
+      <exp>1184</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>7</thing>
+      </equip>
+      <skill>
+        <skill1>醉拳</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>恶犬</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1/>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>护院</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>乱打</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>妹纸</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1/>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>小偷</roleName>
+      <lv>7</lv>
+      <exp>240</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>毒刃</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>流氓</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>贱招</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>茅十八</roleName>
+      <lv>9</lv>
+      <exp>1360</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>英勇刀法</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>双儿</roleName>
+      <lv>18</lv>
+      <exp>3271</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>899</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>妙手回春</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>官兵（雨）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>燃木刀法</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>打手</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>龙爪手</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>书童</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>丢课本</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>江湖术士</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>巫毒术</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>官兵</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>燃木刀法</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>韦春花</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>狮吼骂</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>武林败类</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>排云掌</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>宫女</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>玉女心经</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>大内侍卫</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>天火拳</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>太监</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>辟邪剑法</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>建宁</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>唯我独尊功</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>乌鸦（夜）</roleName>
+      <lv>23</lv>
+      <exp>5640</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>扰乱怪叫</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>乌鸦</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>扰乱怪叫</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>黑龙</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>黑沙掌</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>京城乙少</roleName>
+      <lv>31</lv>
+      <exp>11400</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>迷踪拳</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>京城丙少</roleName>
+      <lv>18</lv>
+      <exp>3140</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>纸醉金迷</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>京城丁少</roleName>
+      <lv>13</lv>
+      <exp>640</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>逍遥银针</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>海大富</roleName>
+      <lv>15</lv>
+      <exp>2760</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>阴阳魔爪</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>打手（雷）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>龙爪手</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>兔爷</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>人间月饼</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>大内侍卫（风）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>天火拳</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>小玄子（夜）</roleName>
+      <lv>101</lv>
+      <exp>3876</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>1182</weapon>
+        <cloth>1184</cloth>
+        <thing>1168</thing>
+      </equip>
+      <skill>
+        <skill1>帝王神功</skill1>
+        <skill2>人间月饼</skill2>
+        <skill3/>
+        <learnedSkill>|人间月饼</learnedSkill>
+      </skill>
+    </role>
+    <role>
+      <roleName>太监（风）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>辟邪剑法</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>吴家刺客</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>飞灰刀法</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>吴家刺客（夜）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>飞灰刀法</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>神龙岛高手</roleName>
+      <lv>10</lv>
+      <exp>1411</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>游龙戏珠</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>宫女（雷）</roleName>
+      <lv>7</lv>
+      <exp>528</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>玉女心经</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>武林败类（雷）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>排云掌</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>吴家刺客（雨）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>飞灰刀法</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>神龙岛高手（雷）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>游龙戏珠</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>毒蛙（风）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>毒水箭</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>神龙岛女仆</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>残花败柳</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>毒蛙</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>毒水箭</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>神龙岛高手（夜）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>游龙戏珠</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>神龙岛高手（雨）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>游龙戏珠</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>武林败类（雨）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>排云掌</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>毒蛙（雨）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>毒水箭</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>打手（雨）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>龙爪手</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>江湖术士（雨）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>巫毒术</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>京城甲少</roleName>
+      <lv>19</lv>
+      <exp>2360</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>通背拳</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>沐剑屏</roleName>
+      <lv>18</lv>
+      <exp>4277</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>波板甜心</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>吴家刺客（风）</roleName>
+      <lv>1</lv>
+      <exp>0</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>-1</weapon>
+        <cloth>-1</cloth>
+        <thing>-1</thing>
+      </equip>
+      <skill>
+        <skill1>飞灰刀法</skill1>
+        <skill2/>
+        <skill3/>
+        <learnedSkill/>
+      </skill>
+    </role>
+    <role>
+      <roleName>瘦头陀</roleName>
+      <lv>52</lv>
+      <exp>36935</exp>
+      <quality>0</quality>
+      <equip>
+        <weapon>1399</weapon>
+        <cloth>1140</cloth>
+        <thing>1142</thing>
+      </equip>
+      <skill>
+        <skill1>肉弹战车</skill1>
+        <skill2>波板甜心</skill2>
+        <skill3>唯我独尊功</skill3>
+        <learnedSkill>|人间月饼|波板甜心|唯我独尊功</learnedSkill>
+      </skill>
+    </role>
+  </roles>
+  <sign_in>
+    <duration>5</duration>
+    <lastDay>2013-10-18 07:32:26</lastDay>
+    <signDays>2013-10-12 10:44:18|2013-10-13 06:33:53|2013-10-14 19:49:55|2013-10-15 05:22:36|2013-10-16 08:09:47|2013-10-17 05:36:06|2013-10-18 07:32:26</signDays>
+  </sign_in>
+  <plugin_game>
+    <wine>2013-10-18 07:32:26</wine>
+    <lechery>2013-10-18 07:32:26</lechery>
+    <money>2013-10-18 07:32:26</money>
+    <breath>2013-10-18 07:32:26</breath>
+    <time>1|1|1|1</time>
+  </plugin_game>
+  <mission>
+    <time>2013-10-18 07:32:26</time>
+    <items>
+      <item id="1" isComplete="-1" equipmentID="4" propID="0"/>
+      <item id="2" isComplete="-1" equipmentID="13" propID="11"/>
+      <item id="3" isComplete="-1" equipmentID="15" propID="0"/>
+      <item id="4" isComplete="-1" equipmentID="15" propID="11"/>
+      <item id="5" isComplete="1" equipmentID="23" propID="0"/>
+      <item id="6" isComplete="-1" equipmentID="22" propID="11"/>
+      <item id="7" isComplete="-1" equipmentID="23" propID="0"/>
+      <item id="8" isComplete="-1" equipmentID="37" propID="11"/>
+      <item id="9" isComplete="-1" equipmentID="0" propID="2"/>
+      <item id="10" isComplete="-1" equipmentID="0" propID="3"/>
+      <item id="11" isComplete="-1" equipmentID="0" propID="1"/>
+      <item id="12" isComplete="-1" equipmentID="54" propID="13"/>
+      <item id="13" isComplete="-1" equipmentID="56" propID="11"/>
+      <item id="14" isComplete="1" equipmentID="0" propID="0"/>
+      <item id="15" isComplete="1" equipmentID="62" propID="11"/>
+      <item id="16" isComplete="1" equipmentID="61" propID="11"/>
+      <item id="17" isComplete="-1" equipmentID="72" propID="11"/>
+      <item id="18" isComplete="-1" equipmentID="76" propID="11"/>
+      <item id="19" isComplete="1" equipmentID="94" propID="36"/>
+      <item id="20" isComplete="-1" equipmentID="67" propID="11"/>
+      <item id="21" isComplete="-1" equipmentID="73" propID="11"/>
+      <item id="22" isComplete="1" equipmentID="91" propID="35"/>
+      <item id="23" isComplete="-1" equipmentID="97" propID="11"/>
+      <item id="24" isComplete="-1" equipmentID="102" propID="11"/>
+      <item id="25" isComplete="-1" equipmentID="109" propID="38"/>
+      <item id="26" isComplete="-1" equipmentID="0" propID="1"/>
+      <item id="27" isComplete="-1" equipmentID="61" propID="11"/>
+      <item id="28" isComplete="-1" equipmentID="115" propID="36"/>
+      <item id="29" isComplete="-1" equipmentID="112" propID="35"/>
+      <item id="30" isComplete="-1" equipmentID="119" propID="38"/>
+      <item id="31" isComplete="-1" equipmentID="121" propID="11"/>
+      <item id="32" isComplete="-1" equipmentID="126" propID="11"/>
+      <item id="33" isComplete="-1" equipmentID="133" propID="37"/>
+      <item id="34" isComplete="-1" equipmentID="138" propID="37"/>
+      <item id="35" isComplete="-1" equipmentID="0" propID="1"/>
+      <item id="36" isComplete="-1" equipmentID="65" propID="11"/>
+      <item id="37" isComplete="-1" equipmentID="114" propID="35"/>
+      <item id="38" isComplete="-1" equipmentID="116" propID="36"/>
+      <item id="39" isComplete="-1" equipmentID="136" propID="37"/>
+      <item id="40" isComplete="-1" equipmentID="119" propID="38"/>
+    </items>
+    <enemy>0-0|37-52|44-8|12-88|41-28|35-3|11-110|51-9|49-27|36-0|10-4|8-1|9-1|7-2|4-1|20-1|15-12|13-4|14-4|50-5|47-3|43-2|42-1</enemy>
+  </mission>
+  <guide>
+    <items>
+      <item levelName="first" type="first"/>
+      <item levelName="getRole" type="getRole"/>
+      <item levelName="2_1" type="enter"/>
+      <item levelName="3_2" type="pass"/>
+      <item levelName="3_3" type="pass"/>
+      <item levelName="match_game" type="match_game"/>
+    </items>
+  </guide>
+  <activity>
+    <item id="40" activityName="暑假礼包" alreadyGet="1" time="2013-08-25 22:47:06"/>
+    <item id="23" activityName="10级礼包" alreadyGet="1" time="2013-09-10 21:32:11"/>
+    <item id="24" activityName="20级礼包" alreadyGet="1" time="2013-09-13 06:28:32"/>
+    <item id="25" activityName="30级礼包" alreadyGet="1" time="2013-09-13 14:15:04"/>
+    <item id="26" activityName="40级礼包" alreadyGet="1" time="2013-09-15 06:27:45"/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-16 19:56:11"/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-16 19:56:11"/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-16 19:56:11"/>
+    <item id="51" activityName="cjLSfmyI" alreadyGet="1" time=""/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-17 08:02:25"/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-17 08:02:25"/>
+    <item id="27" activityName="50级礼包" alreadyGet="1" time="2013-09-17 08:02:25"/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-17 12:06:10"/>
+    <item id="51" activityName="byizeEfw" alreadyGet="1" time=""/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-18 07:23:08"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-18 13:44:15"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-18 13:44:15"/>
+    <item id="51" activityName="enqfGIeQ" alreadyGet="1" time=""/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-19 00:01:09"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-19 00:01:09"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-19 05:18:24"/>
+    <item id="22" activityName="皇家礼包" alreadyGet="1" time="2013-09-19 09:28:27"/>
+    <item id="51" activityName="ylL6VH3j" alreadyGet="1" time=""/>
+    <item id="51" activityName="wmY93v8O" alreadyGet="1" time=""/>
+    <item id="51" activityName="tanT5h8a" alreadyGet="1" time=""/>
+    <item id="51" activityName="tjwQHaZw" alreadyGet="1" time=""/>
+    <item id="51" activityName="HR1iMqO7" alreadyGet="1" time=""/>
+    <item id="51" activityName="1ptvSQKf" alreadyGet="1" time=""/>
+    <item id="51" activityName="HA4BTrdk" alreadyGet="1" time=""/>
+    <item id="22" activityName="皇家礼包" alreadyGet="1" time="2013-09-20 12:29:46"/>
+    <item id="22" activityName="皇家礼包" alreadyGet="1" time="2013-09-20 12:29:46"/>
+    <item id="22" activityName="皇家礼包" alreadyGet="1" time="2013-09-20 12:29:46"/>
+    <item id="51" activityName="DLJamFoT" alreadyGet="1" time=""/>
+    <item id="51" activityName="fuf3KVc8" alreadyGet="1" time=""/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-20 17:25:23"/>
+    <item id="51" activityName="cxg8lYcZ" alreadyGet="1" time=""/>
+    <item id="51" activityName="WAn6Ogbw" alreadyGet="1" time=""/>
+    <item id="51" activityName="4clHmv4T" alreadyGet="1" time=""/>
+    <item id="51" activityName="8Fq07fAv" alreadyGet="1" time=""/>
+    <item id="51" activityName="r3BSWYjC" alreadyGet="1" time=""/>
+    <item id="51" activityName="iqgwkkSn" alreadyGet="1" time=""/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-20 19:56:22"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-20 19:56:22"/>
+    <item id="51" activityName="VW2L8JoB" alreadyGet="1" time=""/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-20 19:56:22"/>
+    <item id="51" activityName="v3liaIS8" alreadyGet="1" time=""/>
+    <item id="51" activityName="t0CZeNvD" alreadyGet="1" time=""/>
+    <item id="51" activityName="MQeXNEhF" alreadyGet="1" time=""/>
+    <item id="51" activityName="idJNO3lZ" alreadyGet="1" time=""/>
+    <item id="22" activityName="皇家礼包" alreadyGet="1" time="2013-09-21 06:05:26"/>
+    <item id="51" activityName="ADxj4moe" alreadyGet="1" time=""/>
+    <item id="51" activityName="e6fLqexR" alreadyGet="1" time=""/>
+    <item id="51" activityName="4yi8gpcV" alreadyGet="1" time=""/>
+    <item id="51" activityName="Zbc8urVJ" alreadyGet="1" time=""/>
+    <item id="51" activityName="Qn5y1oaR" alreadyGet="1" time=""/>
+    <item id="51" activityName="nh0r7Sko" alreadyGet="1" time=""/>
+    <item id="51" activityName="ZzbbHTxG" alreadyGet="1" time=""/>
+    <item id="51" activityName="Zh1bqsN0" alreadyGet="1" time=""/>
+    <item id="51" activityName="lDPYs9gV" alreadyGet="1" time=""/>
+    <item id="51" activityName="9tpTbn9L" alreadyGet="1" time=""/>
+    <item id="51" activityName="bMebFo0n" alreadyGet="1" time=""/>
+    <item id="51" activityName="nJ06eXcN" alreadyGet="1" time=""/>
+    <item id="51" activityName="SUWokxSB" alreadyGet="1" time=""/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-21 20:45:44"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-21 20:45:44"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-21 20:45:44"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-21 20:45:44"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-22 08:39:51"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-22 08:39:51"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-22 08:39:51"/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-22 10:20:05"/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-22 10:20:05"/>
+    <item id="28" activityName="70级礼包" alreadyGet="1" time="2013-09-22 20:09:05"/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-23 05:34:42"/>
+    <item id="50" activityName="双节礼包" alreadyGet="1" time="2013-09-23 05:34:42"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-23 09:58:20"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-23 09:58:20"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-23 09:58:20"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-23 09:58:20"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-24 11:16:50"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-24 11:16:50"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-24 11:16:50"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-24 11:16:50"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-24 18:00:25"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-24 18:00:25"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-24 18:00:25"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-24 18:00:25"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-09-24 18:00:25"/>
+    <item id="52" activityName="C77gyetMyj" alreadyGet="1" time="2013-10-1 7:44:39"/>
+    <item id="29" activityName="100级礼包" alreadyGet="1" time="2013-10-15 6:37:9"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-10-16 8:59:12"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-10-16 9:41:34"/>
+    <item id="21" activityName="新手礼包" alreadyGet="1" time="2013-10-16 21:21:23"/>
+  </activity>
+  <multiReward/>
+  <martial>
+    <item name="京城乙少" startTime="2013-10-18 7:37:7" duration="3"/>
+    <item name="京城甲少" startTime="2013-10-18 7:37:9" duration="3"/>
+    <item name="兔爷" startTime="2013-10-18 7:37:11" duration="3"/>
+  </martial>
+  <glowing>
+    <item glowingTime="2013-10-08 09:56:56" startName="小强" endName="小强（雨）"/>
+    <item glowingTime="2013-10-09 07:02:55" startName="韦小宝" endName="韦小宝（雨）"/>
+    <item glowingTime="2013-10-10 18:03:50" startName="京城甲少" endName="京城甲少（夜）"/>
+    <item glowingTime="2013-10-10 18:03:50" startName="小玄子" endName="小玄子（夜）"/>
+  </glowing>
+  <endless>
+    <time>2013-10-18 07:32:26</time>
+    <endlessTime>137</endlessTime>
+    <endlessLevel>64</endlessLevel>
+    <maxLevel>69</maxLevel>
+    <isComplete>1</isComplete>
+  </endless>
+  <onlineTime>
+    <time>2013-10-18 9:40:2</time>
+    <level>6</level>
+  </onlineTime>
+  <doubleLevel>
+    <time>2013-10-18 07:32:26</time>
+    <startTime>2013-10-18 7:57:18</startTime>
+    <level>5_1</level>
+  </doubleLevel>
+  <worldBoss>
+    <time>2013-10-18 07:32:26</time>
+    <isComplete>1</isComplete>
+    <fightHurt>24402</fightHurt>
+    <getReward>0</getReward>
+    <fightTime>79</fightTime>
+  </worldBoss>
+  <fashion/>
+  <playerFight>
+    <time>2013-10-18 9:32:18</time>
+    <fightTime>6</fightTime>
+    <rewardTime>2013-10-18 07:32:26</rewardTime>
+    <getReward>0</getReward>
+  </playerFight>
+  <upgradeSkill>
+    <skills>0-0|7-24|50-23|34-25|6-26|28-8|36-3|44-7</skills>
+    <learnSkills>丢石子|红烧咸猪手|醉拳|扔酒罐|乱打|扔石灰|毒刃|贱招|英勇刀法|扔毒镖|妙手回春|燃木刀法|巫毒术|龙爪手|丢课本|扔蒙汉药|狮吼骂|丢炸弹|扔化尸毒|排云掌|玉女心经|天火拳|辟邪剑法|唯我独尊功|扰乱怪叫|黑沙掌|迷踪拳|纸醉金迷|逍遥银针|阴阳魔爪|人间月饼|通背拳|帝王神功|飞灰刀法|游龙戏珠|毒水箭|残花败柳|波板甜心|肉弹战车</learnSkills>
+  </upgradeSkill>
+  <upgradeRole>
+    <roles>小强|醉汉|恶犬|护院|妹纸|小偷|流氓|茅十八|双儿|官兵（雨）|江湖术士（雨）|打手|书童|书童（夜）|江湖术士|官兵|韦春花|武林败类|宫女|大内侍卫|太监|建宁|乌鸦（夜）|乌鸦|黑龙|京城乙少|京城丙少|京城丁少|海大富|大内侍卫（夜）|打手（雷）|打手（雨）|兔爷|武林败类（雨）|京城甲少|大内侍卫（风）|小玄子|宫女（雨）|小偷（雨）|太监（夜）|太监（风）|吴家刺客|吴家刺客（夜）|神龙岛高手|宫女（雷）|武林败类（雷）|吴家刺客（雨）|神龙岛高手（雷）|小强（雨）|醉汉（夜）|流氓（夜）|京城甲少（夜）|小玄子（夜）|毒蛙（风）|神龙岛女仆|毒蛙|神龙岛高手（夜）|神龙岛高手（雨）|毒蛙（雨）|沐剑屏|吴家刺客（风）|瘦头陀|小强（夜）</roles>
+  </upgradeRole>
+  <roleTitle>
+    <nowTitle>花好月圆</nowTitle>
+    <allTitle>花好月圆|初出江湖</allTitle>
+  </roleTitle>
+  <midAutumn>
+    <moonCakeUse>250</moonCakeUse>
+    <alreadyGet>1|1|1|1|1|1</alreadyGet>
+  </midAutumn>
+  <vip>
+    <nowVIPLevel>0</nowVIPLevel>
+    <nowRecharged>0</nowRecharged>
+    <time>2013-10-18 07:32:26</time>
+    <alreadyGet>0</alreadyGet>
+  </vip>
+  <strength>
+    <front ats="1" adf="0" ats_exp="0" adf_exp="0"/>
+    <middle ats="0" adf="0" ats_exp="0" adf_exp="0"/>
+    <back ats="0" adf="0" ats_exp="0" adf_exp="0"/>
+  </strength>
+  <union>
+    <time>2013-10-18 07:32:26</time>
+    <complete>1|1|0|0|0|0|0|0|0</complete>
+  </union>
+  <dailyThing>
+    <time>2013-10-18 07:32:26</time>
+    <complete>1|1|1|1|1|1|1|1|1|1|1</complete>
+    <reward>1|1|1|1|1|1|1|1|1|1|1</reward>
+  </dailyThing>
+  <ignoreComments>true</ignoreComments>
+</DATA>
